@@ -17,10 +17,11 @@ const Gitmoji = (props: Props) => {
   return (
     <article
       style={style}
-      className={`${styles.emoji} col-xs-12 col-sm-6 ${
-        props.isListMode ? 'col-md-4' : 'col-md-3'
-      }`}
+      className={`${styles.emoji} col-xs-12 col-sm-6 ${props.isListMode ? 'col-md-4' : 'col-md-3'}`}
     >
+      <div className={styles.hoverOverlay}>
+        <p>Very Important</p>
+      </div>
       <div
         className={`${styles.card} ${props.isListMode ? styles.cardList : ''}`}
       >
@@ -45,7 +46,8 @@ const Gitmoji = (props: Props) => {
                 props.code,
                 '_',
                 <>
-                  _<wbr />
+                  _
+                  <wbr />
                 </>,
               )}
             </code>
