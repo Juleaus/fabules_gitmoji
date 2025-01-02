@@ -10,7 +10,7 @@ const Home = () => (
     <SEO />
     <main>
       <CarbonAd />
-      <GitmojiList gitmojis={gitmojis} />
+      <GitmojiList gitmojis={gitmojis}  />
       <Toaster position="top-left" />
     </main>
   </>

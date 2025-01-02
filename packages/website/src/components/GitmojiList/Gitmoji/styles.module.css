@@ -1,6 +1,43 @@
 .emoji {
     display: flex;
     box-sizing: border-box;
+    animation : 1s hihan 0s infinite ease-in-out ;
+    animation-play-state: paused;
+}
+
+.list{
+    max-height: 9em;
+    height: 9em;
+}
+
+.notList{
+    max-height: 20em;
+    height: 20em;
+}
+
+.emoji:hover{
+    animation-play-state: running;
+}
+
+.rightlean {
+    animation-direction: reverse;
+}
+
+.emoji:hover > .card {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    box-shadow: 2px 1px 1px 0 var(--cardShadow);
+}
+
+.emoji:hover > .relatedColumn {
+    max-width: 20%;
+    width: 20%;
+    box-shadow: -2px 1px 1px 0 var(--cardShadow);
+
+}
+
+.emoji:hover > .relatedColumn > .gitmojiSmall {
+    display: inline-block;
 }
 
 .card {
@@ -10,10 +47,10 @@
     box-shadow: 0 1px 2px 0 var(--cardShadow);
     flex: 1;
     margin: 1em 0;
-    transition: all 0.25s ease-out;
     text-align: center;
     overflow: hidden;
 }
+
 
 .cardList {
     display: flex;
@@ -41,14 +78,8 @@
 }
 
 .cardList .gitmojiInfo p {
-    padding: 0;
     margin: 0;
     padding-top: 0.5rem;
-}
-
-.card:hover {
-    box-shadow: 0 10px 20px 0 var(--cardShadow);
-    transform: translateY(-1px);
 }
 
 
@@ -62,10 +93,10 @@
     align-self: flex-start;
     padding-top: 2em;
     padding-bottom: 0.85em;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+
 }
 
+.gitmojiSmall,
 .gitmoji,
 .gitmojiCode {
     background-color: transparent;
@@ -83,7 +114,8 @@
     font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
     'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
 }
-
+.gitmojiSmall:hover,
+.gitmojiSmall:focus,
 .gitmoji:hover,
 .gitmoji:focus {
     animation-name: bounce;
@@ -126,24 +158,27 @@
     word-break: normal;
 }
 
-.hoverOverlay {
+.relatedColumn {
+    scroll-behavior: smooth;
     margin: 1em 0;
-    border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
     float: left;
-    display: none;
+    max-width: 0;
     position: relative;
     bottom: 0;
     left: 0;
-    width: 20%; /* Full width of the container */
-    height: 90%; /* Height of the overlay */
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    background-color: var(--emojiColor);
+    overflow: auto;
+    /*animation: scroll 10s linear infinite;*/
 }
 
-.emoji:hover .hoverOverlay {
-    display: block;
-    transform: translateX(0); /* Slide the overlay into view */
-}
 
+.gitmojiSmall {
+    cursor: pointer;
+    display: none;
+    width: 100%;
+}
 
 @media (max-width: 768px) {
     .gitmoji,
@@ -154,6 +189,10 @@
     .cardHeader {
         padding-bottom: 1em;
     }
+}
+
+.gitmojiSmall {
+    padding: 0.25em;
 }
 
 /*
@@ -183,5 +222,29 @@
 
     90% {
         transform: translate3d(0, -2px, 0);
+    }
+}
+
+@keyframes hihan {
+
+    0%,
+    100% {
+        transform: rotateZ(0deg);
+    }
+
+    25% {
+        transform: rotateZ(-1deg);
+    }
+    75% {
+        transform: rotateZ(1deg);
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
     }
 }

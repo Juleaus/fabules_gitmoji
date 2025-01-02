@@ -8,6 +8,8 @@ coverage/
 .eslintcache
 *.log
 .pnp.*
+*.idea
+*.turbo
 
 # next-pwa
 packages/website/public/workbox-*.js

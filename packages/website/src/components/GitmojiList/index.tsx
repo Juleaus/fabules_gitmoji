@@ -18,10 +18,11 @@ const GitmojiList = (props: Props) => {
   const [searchInput, setSearchInput] = useState('')
   const [isListMode, setIsListMode] = useLocalStorage('isListMode', false)
 
+  const futurList = []
+
   const gitmojis = searchInput
     ? props.gitmojis.filter(({ emoji, code, description }) => {
         const lowerCasedSearch = searchInput.toLowerCase()
-
         return (
           code.includes(lowerCasedSearch) ||
           description.toLowerCase().includes(lowerCasedSearch) ||
@@ -76,6 +77,8 @@ const GitmojiList = (props: Props) => {
     return () => clipboard.destroy()
   }, [])
 
+  const regex =  /the |of |a |or |and |in |to |\.|\/|that |be |on /g
+
   return (
     <div className="row" id="gitmoji-list">
       <div className="col-xs-12">
@@ -100,6 +103,12 @@ const GitmojiList = (props: Props) => {
             // @ts-expect-error: This should be replaced with something like:
             // typeof gitmojis[number]['name'] but JSON can't be exported `as const`
             name={gitmoji.name}
+            relatedEmojis={gitmojis.filter((props) => {
+                const currentEmojiDesc = gitmoji.description.replaceAll(new RegExp(regex,'g'), '').split(' ')
+                const emojiDesc = props.description.replace('.','').split(' ');
+
+                return (gitmoji.emoji != props.emoji) &&  currentEmojiDesc.some((word) => emojiDesc.includes(word));
+            })}
           />
         ))
       )}
