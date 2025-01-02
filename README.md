@@ -32,4 +32,21 @@ Even if the [backend](packages/gitmojis) was available to us we wanted to avoid 
 
 As such to choose if two emojis were "related" we checked if key-word were present in both description and if they were the two emojis were related.  
 
-We also took the time to "embellish" the css with our own artistic take 
+We also took the time to "embellish" the css with our own artistic take
+How to start the website
+
+
+## Run the project
+
+Clone the project 
+```
+$ git clone https://github.com/Juleaus/fabules_gitmoji.git
+$ cd gitmoji
+```
+Install the dependencies and start the development server.
+```
+$ npm install pnpm
+$ cd packages/website
+$ pnpm install && pnpm run dev
+```
+
