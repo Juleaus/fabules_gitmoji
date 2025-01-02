@@ -22,43 +22,14 @@
 
 The gitmojis are published on the [following package](https://www.npmjs.com/package/gitmojis) in order to be used as a dependency 📦.
 
-## Using [gitmoji-cli](https://github.com/carloscuesta/gitmoji-cli)
+## Project 
 
-To use gitmojis from your command line install [gitmoji-cli](https://github.com/carloscuesta/gitmoji-cli). A gitmoji interactive client for using emojis on commit messages.
+Our main task for the project was to add a column we named "relatedColumn" in which we put emojis that are related to the currently select emoji.
 
-```bash
-npm i -g gitmoji-cli
-```
+This is inspired by this [issue](https://github.com/carloscuesta/gitmoji/issues/924).
 
-## Example of usage
+Even if the [backend](packages/gitmojis) was available to us we wanted to avoid changing it as we believed that the project tasks us with changing an open source website and consuming an API we cannot modify. 
 
-In case you need some ideas to integrate gitmoji in your project, here's a practical way to use it:
+As such to choose if two emojis were "related" we checked if key-word were present in both description and if they were the two emojis were related.  
 
-```
-<intention> [scope?][:?] <message>
-```
-
-- `intention`: An emoji from the list.
-- `scope`: An optional string that adds contextual information for the scope of the change.
-- `message`: A brief explanation of the change.
-
-## Contributing to gitmoji
-
-Contributing to gitmoji is a piece of :cake:, read the [contributing guidelines](https://github.com/carloscuesta/gitmoji/blob/master/.github/CONTRIBUTING.md). You can discuss emojis using the [issues section](https://github.com/carloscuesta/gitmoji/issues/new). To add a new emoji to the list create an issue and send a pull request, see [how to send a pull request and add a gitmoji](https://github.com/carloscuesta/gitmoji/blob/master/.github/CONTRIBUTING.md#how-to-add-a-gitmoji).
-
-## Spread the word
-
-Are you using Gitmoji on your project? Set the Gitmoji badge on top of your readme using this code:
-
-```html
-<a href="https://gitmoji.dev">
-  <img
-    src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square"
-    alt="Gitmoji"
-  />
-</a>
-```
-
-## License
-
-The code is available under the [MIT](https://github.com/carloscuesta/gitmoji/blob/master/LICENSE) license.
+We also took the time to "embellish" the css with our own artistic take 

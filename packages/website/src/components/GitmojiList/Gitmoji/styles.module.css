@@ -5,6 +5,17 @@
     animation-play-state: paused;
 }
 
+.shiny > * {
+    background: linear-gradient(45deg, #ff9900, #ffc800 , #ffe000, #fff700, #b8f500, #95e214, #72ce27);
+    background-size: 400% 400%;
+    animation: 1s hanhi 2s infinite ease-in-out, rainbow 4s infinite linear !important;
+    transition : box-shadow 1s;
+}
+
+.shiny:hover {
+    animation : 20s shinyHover 0s infinite ease-in-out !important;
+}
+
 .list{
     max-height: 9em;
     height: 9em;
@@ -170,7 +181,6 @@
     left: 0;
     background-color: var(--emojiColor);
     overflow: auto;
-    /*animation: scroll 10s linear infinite;*/
 }
 
 
@@ -240,11 +250,53 @@
     }
 }
 
-@keyframes scroll {
+@keyframes hanhi {
+
+    0%,
+    100% {
+        transform: rotateY(0deg);
+    }
+
+    25% {
+        transform: rotateY(-10deg);
+    }
+    75% {
+        transform: rotateY(10deg);
+    }
+}
+
+@keyframes shinyHover {
+
+    20% {
+        transform: rotateZ(180deg);
+        opacity: 0;
+    }
+
+    40% {
+        transform: rotateZ(360deg);
+        opacity: 1;
+    }
+
+    60% {
+        transform: rotateZ(-180deg);
+        opacity: 0;
+    }
+
+    80% {
+        transform: rotateZ(0deg);
+        opacity: 1;
+    }
+}
+
+
+@keyframes rainbow {
     0% {
-        transform: translateY(0);
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
     }
     100% {
-        transform: translateY(-100%);
+        background-position: 0% 50%;
     }
 }

@@ -16,10 +16,11 @@ const Gitmoji = (props: Props) => {
   const style = {
     '--emojiColor': emojiColorsMap[props.name],
   } as React.CSSProperties
+
   return (
     <article
       style={style}
-      className={`${styles.emoji} col-xs-12 col-sm-6 ${props.isListMode ? 'col-md-4' : 'col-md-3'} ${props.isListMode ? `${styles.list}` : `${styles.notList}`} ${Math.random() < 0.5 ? 'left-lean' : `${styles.rightlean}`}`}
+      className={`${styles.emoji} col-xs-12 col-sm-6 ${props.isListMode ? 'col-md-4' : 'col-md-3'} ${props.isListMode ? `${styles.list}` : `${styles.notList}`} ${Math.random() < 0.5 ? 'left-lean' : `${styles.rightlean}`} ${Math.random() < 0.01 ? `${styles.shiny}` : 'notspecial'}` }
     >
       {props.relatedEmojis.length > 0 && (
         <div className={styles.relatedColumn}>
